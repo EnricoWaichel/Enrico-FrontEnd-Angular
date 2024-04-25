@@ -1,17 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
-export interface Carta {
-  id: number;
-  nome: String;
-  forca: number;
-  inteligencia: number;
-  velocidade: number;
-  dataCadastro: Date;
-}
 
 @Component({
   selector: 'app-carta-listagem',
- 
+
   templateUrl: './carta-listagem.component.html',
   styleUrl: './carta-listagem.component.scss'
 })
