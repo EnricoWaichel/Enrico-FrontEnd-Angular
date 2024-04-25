@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Carta } from '../../shared/model/carta';
+import { CartasService } from '../../shared/service/cartas.service';
 
 
 @Component({
@@ -9,15 +11,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartaListagemComponent implements OnInit{
 
-  public cartas: Carta[] = [
-    {id:1, nome:'Pelé',forca:5,inteligencia:3,velocidade:5,dataCadastro: new Date()},
-    {id:1, nome:'Jorge',forca:3,inteligencia:3,velocidade:2,dataCadastro: new Date()},
-    {id:1, nome:'Nilson',forca:2,inteligencia:4,velocidade:1,dataCadastro: new Date()},
-  ]
+  public cartas: Carta[] = [];
 
-  constructor() { }
+  constructor(private CartaService: CartasService) { }
 
   ngOnInit(): void {
-
+    this.consultarTodasCartas();
   }
+
+  private consultarTodasCartas() {
+    this.CartaService.listarTodas().subscribe(
+      resultado => {
+        this.cartas =resultado;
+      },
+      erro => {
+        console.error('erro ao consultar cartas',erro);
+      }
+    );
+  }
+
+
+
 }

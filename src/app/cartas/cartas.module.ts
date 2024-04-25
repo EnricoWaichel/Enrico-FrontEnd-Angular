@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { CartasRoutingModule } from './cartas-routing.module';
 import { CartaListagemComponent } from './carta-listagem/carta-listagem.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { CartaListagemComponent } from './carta-listagem/carta-listagem.componen
   ],
   imports: [
     CommonModule,
-    CartasRoutingModule
+    CartasRoutingModule,
+    HttpClientModule
   ]
 })
 export class CartasModule { }
