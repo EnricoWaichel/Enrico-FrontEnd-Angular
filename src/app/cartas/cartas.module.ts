@@ -1,3 +1,4 @@
+import { CartaDetalheComponent } from './carta-detalhe/carta-detalhe.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -9,7 +10,8 @@ import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    CartaListagemComponent
+    CartaListagemComponent,
+    CartaDetalheComponent,
   ],
   imports: [
     CommonModule,
