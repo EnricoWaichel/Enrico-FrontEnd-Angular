@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Carta } from '../../shared/model/carta';
 import { CartasService } from '../../shared/service/cartas.service';
-import { Router } from 'express';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
