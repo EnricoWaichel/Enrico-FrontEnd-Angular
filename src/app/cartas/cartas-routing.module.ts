@@ -6,7 +6,7 @@ import { CartaDetalheComponent } from './carta-detalhe/carta-detalhe.component';
 const routes: Routes = [
   { path: '', component: CartaListagemComponent },
   { path: 'detalhe', component: CartaDetalheComponent },
-  { path: '**', redirectTo: '' }
+  { path: 'detalhe/id', component: CartaDetalheComponent}
 ];
 
 @NgModule({

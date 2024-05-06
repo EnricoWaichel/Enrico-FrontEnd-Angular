@@ -13,12 +13,12 @@ export class CartasService {
 
   constructor(private HttpClient: HttpClient) {}
 
-  salvar(carta: Carta): Observable<any> {
-    return this.HttpClient.post(this.API, carta);
+  salvar(carta: Carta): Observable<Carta> {
+    return this.HttpClient.post<Carta>(this.API, carta);
   }
 
-  ataulizar(carta: Carta): Observable<any> {
-    return this.HttpClient.put(this.API, carta);
+  ataulizar(carta: Carta): Observable<Carta> {
+    return this.HttpClient.put<Carta>(this.API, carta);
   }
 
   excluir(id: number): Observable<any> {

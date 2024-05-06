@@ -2,6 +2,7 @@ import { CartaSeletor } from './../../shared/model/seletor/carta.seletor';
 import { Component, OnInit } from '@angular/core';
 import { Carta } from '../../shared/model/carta';
 import { CartasService } from '../../shared/service/cartas.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -40,5 +41,26 @@ export class CartaListagemComponent implements OnInit{
   }
 public limpar() {
   this.seletor = new CartaSeletor();
+}
+excluir(cartaSelecionada: Carta) {
+  Swal.fire({
+    title: 'Deseja realmente exluir a carta?',
+    text: 'Essa ação não poderá ser desfeita!',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Sim, exluir!',
+    cancelButtonText: 'Cancelar'
+  }).then((result) => {
+    if (result.value) {
+      this.CartaService.excluir(cartaSelecionada.id).subscribe(
+        resultado => {
+          this.pesquisar();
+        },
+        erro => {
+          Swal.fire('Erro!','Erro ao exluir a carta: '+erro.error.mensagem,'error');
+        }
+      );
+    }
+  });
 }
 }
