@@ -1,8 +1,9 @@
-import { CartaSeletor } from './../../shared/model/seletor/carta.seletor';
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
 import { Carta } from '../../shared/model/carta';
 import { CartasService } from '../../shared/service/cartas.service';
-import Swal from 'sweetalert2';
+import { CartaSeletor } from './../../shared/model/seletor/carta.seletor';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,7 +16,8 @@ export class CartaListagemComponent implements OnInit{
   public cartas: Carta[] = [];
   public seletor: CartaSeletor = new CartaSeletor();
 
-  constructor(private CartaService: CartasService) { }
+  constructor(private CartaService: CartasService,
+    private router: Router) {  }
 
   ngOnInit(): void {
     this.consultarTodasCartas();
@@ -62,5 +64,8 @@ excluir(cartaSelecionada: Carta) {
       );
     }
   });
+}
+editar(idCartaSelecionada: number) {
+  this.router.navigate(['/cartas/detalhe/',idCartaSelecionada])
 }
 }

@@ -32,7 +32,7 @@ ngOnInit(): void {
 buscarCarta(): void {
   this.cartaService.consultar(this.idCarta).subscribe(
     (carta) => {
-      this.carta=carta;
+      this.carta= carta;
     },
     (erro) => {
       Swal.fire('Erro ao buscar a carta!',erro,'error');
@@ -49,7 +49,8 @@ salvar(): void {
 inserir(): void {
   this.cartaService.salvar(this.carta).subscribe(
     (resposta) => {
-      Swal.fire('Carta salva com sucesso!','','success')
+      Swal.fire('Carta salva com sucesso!','','success');
+      this.voltar();
     },
       (erro) => {
       Swal.fire('Erro ao salvar a carta: '+ erro.error.mensagem,'error')
@@ -68,6 +69,6 @@ atualizar(): void {
   );
 }
 voltar(): void {
-  this.router.navigate(['/cartas/carta-listagem']);
+  this.router.navigate(['/cartas']);
 }
 }
