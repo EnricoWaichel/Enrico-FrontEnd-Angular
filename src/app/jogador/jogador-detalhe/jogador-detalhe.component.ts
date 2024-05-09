@@ -1,38 +1,36 @@
-import { CartaSeletor } from './../../shared/model/seletor/carta.seletor';
-
+import { Jogador } from './../../shared/model/jogador';
 import { Component, OnInit } from '@angular/core';
-import { Carta } from '../../shared/model/carta';
-import { CartasService } from '../../shared/service/cartas.service';
+import { JogadorService } from '../../shared/service/jogador.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-carta-detalhe',
-  templateUrl: './carta-detalhe.component.html',
-  styleUrl: './carta-detalhe.component.scss'
+  selector: 'app-jogador-detalhe',
+  templateUrl: './jogador-detalhe.component.html',
+  styleUrl: './jogador-detalhe.component.scss'
 })
-export class CartaDetalheComponent implements OnInit{
+export class JogadorDetalheComponent implements OnInit{
 
-  public carta: Carta = new Carta();
-public idCarta: number;
+  public jogador: Jogador = new Jogador();
+public idJogador: number;
 
-  constructor(private cartaService:CartasService,
+  constructor(private jogadorService:JogadorService,
           private router: Router,
           private route: ActivatedRoute
   ) { }
 
 ngOnInit(): void {
   this.route.params.subscribe((params) => {
-    this.idCarta = params['id'];
-    if(this.idCarta) {
+    this.idJogador = params['id'];
+    if(this.idJogador) {
       this.buscarCarta();
     }
   })
 }
 buscarCarta(): void {
-  this.cartaService.consultar(this.idCarta).subscribe(
-    (carta) => {
-      this.carta= carta;
+  this.jogadorService.consultar(this.idJogador).subscribe(
+    (jogador) => {
+      this.jogador= jogador;
     },
     (erro) => {
       Swal.fire('Erro ao buscar a carta!',erro,'error');
@@ -40,14 +38,14 @@ buscarCarta(): void {
   );
 }
 salvar(): void {
-  if(this.idCarta){
+  if(this.idJogador){
     this.atualizar();
   }else {
     this.inserir();
   }
 }
 inserir(): void {
-  this.cartaService.salvar(this.carta).subscribe(
+  this.jogadorService.salvar(this.jogador).subscribe(
     (resposta) => {
       Swal.fire('Carta salva com sucesso!','','success');
       this.voltar();
@@ -58,7 +56,7 @@ inserir(): void {
   );
 }
 atualizar(): void {
-  this.cartaService.atualizar(this.carta).subscribe(
+  this.jogadorService.atualizar(this.jogador).subscribe(
     (resposta) => {
       Swal.fire('Carta atualizada com sucesso!','','success');
       this.voltar();
@@ -69,6 +67,6 @@ atualizar(): void {
   );
 }
 voltar(): void {
-  this.router.navigate(['/cartas']);
+  this.router.navigate(['/jogador']);
 }
 }

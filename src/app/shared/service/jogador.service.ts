@@ -1,24 +1,24 @@
+import { Jogador } from './../model/jogador';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Carta } from '../model/carta';
-import { CartaSeletor } from '../model/seletor/carta.seletor';
+import { JogadorSeletor } from '../model/seletor/jogador.seletor';
 
 @Injectable({
   providedIn: 'root',
 })
-export class CartasService {
+export class JogadorService {
   private readonly API =
-    'http://localhost:8080/senac-20241-backend-exemplos/rest/carta';
+    'http://localhost:8080/senac-20241-backend-exemplos/rest/jogador';
 
   constructor(private HttpClient: HttpClient) {}
 
-  salvar(carta: Carta): Observable<Carta> {
-    return this.HttpClient.post<Carta>(this.API, carta);
+  salvar(jogador: Jogador): Observable<Jogador> {
+    return this.HttpClient.post<Jogador>(this.API, jogador);
   }
 
-  atualizar(carta: Carta): Observable<Carta> {
-    return this.HttpClient.put<Carta>(this.API, carta);
+  atualizar(Jogador: Jogador): Observable<Jogador> {
+    return this.HttpClient.put<Jogador>(this.API, Jogador);
   }
 
   excluir(id: number): Observable<any> {
@@ -28,11 +28,11 @@ export class CartasService {
   consultar(id: number): Observable<any> {
     return this.HttpClient.get(this.API + '/' + id);
   }
-  listarTodas(): Observable<Array<Carta>> {
-    return this.HttpClient.get<Array<Carta>>(this.API + '/todas');
+  listarTodos(): Observable<Array<Jogador>> {
+    return this.HttpClient.get<Array<Jogador>>(this.API + '/todas');
   }
 
-  listarComSeletor(seletor: CartaSeletor): Observable<Array<Carta>> {
-    return this.HttpClient.post<Array<Carta>>(this.API + '/filtrar', seletor);
+  listarComSeletor(seletor: JogadorSeletor): Observable<Array<Jogador>> {
+    return this.HttpClient.post<Array<Jogador>>(this.API + '/filtrar', seletor);
   }
 }
