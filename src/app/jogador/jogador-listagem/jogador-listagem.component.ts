@@ -1,4 +1,7 @@
+import { JogadorSeletor } from './../../shared/model/seletor/jogador.seletor';
 import { Component, OnInit } from '@angular/core';
+import { JogadorSeletor } from '../../shared/model/seletor/jogador.seletor';
+import { Jogador } from '../../shared/model/jogador';
 
 @Component({
   selector: 'app-jogador-listagem',
@@ -7,7 +10,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JogadorListagemComponent implements OnInit {
 
-  constructor() {  }
+  public Jogador: Jogador[] = [];
+  public seletor:JogadorSeletor = new JogadorSeletor();
+
+  constructor(private JogadorService: JogadorService) {  }
 
   ngOnInit(): void {
   }
