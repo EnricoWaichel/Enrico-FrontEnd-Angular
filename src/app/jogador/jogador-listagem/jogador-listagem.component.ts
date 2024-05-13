@@ -1,7 +1,7 @@
-import { Jogador } from './../../shared/model/jogador';
+import { Jogador } from '../../shared/model/vemProX1/jogador';
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
-import { JogadorService } from '../../shared/service/jogador.service';
+import { JogadorService } from '../../shared/service/vemProX1/jogador.service';
 import { JogadorSeletor } from '../../shared/model/seletor/jogador.seletor';
 import { Router } from '@angular/router';
 

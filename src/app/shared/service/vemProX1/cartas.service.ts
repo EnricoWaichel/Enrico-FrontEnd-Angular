@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Carta } from '../model/carta';
-import { CartaSeletor } from '../model/seletor/carta.seletor';
+import { Carta } from '../../model/vemProX1/carta';
+import { CartaSeletor } from '../../model/seletor/carta.seletor';
 
 @Injectable({
   providedIn: 'root',

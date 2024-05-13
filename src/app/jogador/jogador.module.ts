@@ -1,4 +1,4 @@
-import { Jogador } from './../shared/model/jogador';
+import { Jogador } from '../shared/model/vemProX1/jogador';
 import { JogadorDetalheComponent } from './jogador-detalhe/jogador-detalhe.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';

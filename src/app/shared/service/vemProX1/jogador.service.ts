@@ -1,8 +1,8 @@
-import { Jogador } from './../model/jogador';
+import { Jogador } from '../../model/vemProX1/jogador';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { JogadorSeletor } from '../model/seletor/jogador.seletor';
+import { JogadorSeletor } from '../../model/seletor/jogador.seletor';
 
 @Injectable({
   providedIn: 'root',

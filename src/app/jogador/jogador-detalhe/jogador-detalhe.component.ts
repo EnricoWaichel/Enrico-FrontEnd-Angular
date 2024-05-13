@@ -1,6 +1,6 @@
-import { Jogador } from './../../shared/model/jogador';
+import { Jogador } from '../../shared/model/vemProX1/jogador';
 import { Component, OnInit } from '@angular/core';
-import { JogadorService } from '../../shared/service/jogador.service';
+import { JogadorService } from '../../shared/service/vemProX1/jogador.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 

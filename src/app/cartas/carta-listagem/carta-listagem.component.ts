@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
-import { Carta } from '../../shared/model/carta';
-import { CartasService } from '../../shared/service/cartas.service';
+import { Carta } from '../../shared/model/vemProX1/carta';
+import { CartasService } from '../../shared/service/vemProX1/cartas.service';
 import { CartaSeletor } from './../../shared/model/seletor/carta.seletor';
 import { Router } from '@angular/router';
 
