@@ -17,22 +17,23 @@ export class JogadorService {
     return this.HttpClient.post<Jogador>(this.API, jogador);
   }
 
-  atualizar(Jogador: Jogador): Observable<Jogador> {
-    return this.HttpClient.put<Jogador>(this.API, Jogador);
+  atualizar(jogador: Jogador): Observable<Jogador> {
+    return this.HttpClient.put<Jogador>(this.API, jogador);
   }
 
   excluir(id: number): Observable<any> {
-    return this.HttpClient.delete(this.API + '/' + id);
+    return this.HttpClient.delete(`${this.API}/${id}`);
   }
 
   consultar(id: number): Observable<any> {
-    return this.HttpClient.get(this.API + '/' + id);
-  }
-  listarTodos(): Observable<Array<Jogador>> {
-    return this.HttpClient.get<Array<Jogador>>(this.API + '/todas');
+    return this.HttpClient.get(`${this.API}/${id}`);
   }
 
-  listarComSeletor(seletor: JogadorSeletor): Observable<Array<Jogador>> {
-    return this.HttpClient.post<Array<Jogador>>(this.API + '/filtrar', seletor);
+  listarTodos(): Observable<Jogador[]> {
+    return this.HttpClient.get<Jogador[]>(`${this.API}/todos`);
+  }
+
+  listarComSeletor(seletor: JogadorSeletor): Observable<Jogador[]> {
+    return this.HttpClient.post<Jogador[]>(`${this.API}/filtrar`, seletor);
   }
 }

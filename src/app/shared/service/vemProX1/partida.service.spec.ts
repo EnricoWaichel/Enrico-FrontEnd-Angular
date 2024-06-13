@@ -1,12 +1,11 @@
 import { TestBed } from '@angular/core/testing';
-import { MontadoraService } from './montadoras.service';
-
-describe('MontadoraService', () => {
-  let service: MontadoraService;
+import { PartidaService } from './partida.service';
+describe('PartidaService', () => {
+  let service: PartidaService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(MontadoraService);
+    service = TestBed.inject(PartidaService);
   });
 
   it('should be created', () => {

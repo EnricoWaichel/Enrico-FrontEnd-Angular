@@ -1,8 +1,9 @@
+
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
 import { Carta } from '../../shared/model/vemProX1/carta';
 import { CartasService } from '../../shared/service/vemProX1/cartas.service';
-import { CartaSeletor } from './../../shared/model/seletor/carta.seletor';
+
 import { Router } from '@angular/router';
 
 
@@ -14,7 +15,7 @@ import { Router } from '@angular/router';
 export class CartaListagemComponent implements OnInit{
 
   public cartas: Carta[] = [];
-  public seletor: CartaSeletor = new CartaSeletor();
+ // public seletor: CartaSeletor = new CartaSeletor();
 
   constructor(private CartaService: CartasService,
     private router: Router) {  }
@@ -24,11 +25,11 @@ export class CartaListagemComponent implements OnInit{
   }
 
   public pesquisar() {
-    this.CartaService.listarComSeletor(this.seletor).subscribe(
-      resultado => {
-        this.cartas = resultado;
-      }
-    )
+    // this.CartaService.listarComSeletor(this.seletor).subscribe(
+    //   resultado => {
+    //     this.cartas = resultado;
+    //   }
+    // )
   }
 
   private consultarTodasCartas() {
@@ -42,7 +43,7 @@ export class CartaListagemComponent implements OnInit{
     );
   }
 public limpar() {
-  this.seletor = new CartaSeletor();
+  // this.seletor = new CartaSeletor();
 }
 excluir(cartaSelecionada: Carta) {
   Swal.fire({

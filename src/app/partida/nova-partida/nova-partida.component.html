@@ -1,0 +1,34 @@
+<div *ngIf="!partida">
+  <form [formGroup]="novaPartidaForm" (ngSubmit)="iniciarPartida()">
+    <div>
+      <label for="jogador1">Selecione um jogador:</label>
+      <select [(ngModel)]="jogadorSelecionado" name="jogador1" required>
+        <option *ngFor="let jogador of jogadores" [ngValue]="jogador">
+          {{ jogador.nome }}
+        </option>
+      </select>
+    </div>
+    <button type="submit" [disabled]="!jogadorSelecionado">Iniciar X1</button>
+    <div *ngIf="!jogadorSelecionado">
+      <p>Por favor, selecione um jogador para iniciar a partida.</p>
+    </div>
+  </form>
+</div>
+
+<div *ngIf="partida">
+  <h2>Partida #{{ partida.id }} - Iniciada para {{ jogadorSelecionado?.nome }}</h2>
+  <div *ngFor="let carta of cartas">
+    <div *ngIf="!carta.usada">
+      <div>
+        <h3>{{ carta.nome }}</h3>
+        <p>Força: {{ carta.forca }}</p>
+        <p>Inteligência: {{ carta.inteligencia }}</p>
+        <p>Velocidade: {{ carta.velocidade }}</p>
+        <p>Data de Cadastro: {{ carta.dataCadastro | date: 'dd/MM/yyyy' }}</p>
+      </div>
+      <button [disabled]="carta.usada" (click)="jogarCarta(carta, 'forca')">Jogar Carta (Força)</button>
+      <button [disabled]="carta.usada" (click)="jogarCarta(carta, 'inteligencia')">Jogar Carta (Inteligência)</button>
+      <button [disabled]="carta.usada" (click)="jogarCarta(carta, 'velocidade')">Jogar Carta (Velocidade)</button>
+    </div>
+  </div>
+</div>
